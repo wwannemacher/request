@@ -1277,6 +1277,9 @@ Request.prototype.aws = function (opts, now) {
       },
       body: self.body
     }
+    for ( var opt in opts ) {
+      options[ opt ] = opts[ opt ]
+    }
     var signRes = aws4.sign(options, {
       accessKeyId: opts.key,
       secretAccessKey: opts.secret
